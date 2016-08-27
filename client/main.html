@@ -1,0 +1,30 @@
+<head>
+  <title>stringspool</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> userinput}}
+  {{> info}}
+</body>
+
+<template name="userinput">
+
+  <button id="first_button">Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+  <form id="user-form">
+    <input type="text" id="user-text" />
+    <p id="user-show"></p>
+  </form>
+</template>
+
+<template name="info">
+  <h2>Learn Meteor!</h2>
+  <ul>
+    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
+    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
+    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
+    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
+  </ul>
+</template>
