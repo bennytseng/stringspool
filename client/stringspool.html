@@ -1,0 +1,24 @@
+<head>
+  <title>stringspool</title>
+</head>
+
+<body>
+  <div class="spool-container">
+    {{> stringspool}}
+  </div>
+</body>
+
+<template name='stringspool'>
+  {{#each texts}}
+    <span class="body-text">{{text}}~</span>
+  {{/each}}
+
+  <input type="text" id="user-text" />
+  <div class="bottom-finder"></div>
+
+</template>
+
+<!-- <template name='newtext'>
+  <h1 id="user-show"></h1>
+  <input type="text" id="user-text" />
+</template> -->
