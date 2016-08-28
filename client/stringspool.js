@@ -5,13 +5,12 @@ import './stringspool.html';
 
 Template.stringspool.onCreated(function() {
   Meteor.setInterval(function() {
-    console.log('works');
     $('#user-text').focus()
     // var spool = document.getElementsByClassName('spool-container')
     // var isScrolledToBottom = spool.scrollHeight - spool.clientHeight <= spool.scrollTop + 1;
     // if(isScrolledToBottom)
     // spool.scrollTop = spool.scrollHeight - spool.clientHeight;
-  }, 1000);
+  }, 500);
 });
 
 Template.stringspool.helpers({
@@ -33,6 +32,7 @@ Template.stringspool.events({
       var created_at = new Date();
       Strings.insert({text:$user_input,created_at: created_at ,color:'black'});
       $('#user-text').val('')
+      
     }
   }
 

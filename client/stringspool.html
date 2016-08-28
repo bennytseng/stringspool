@@ -6,15 +6,17 @@
   <div class="spool-container">
     {{> stringspool}}
   </div>
+
+    <div class="glitch-picture"></div>
+
 </body>
 
 <template name='stringspool'>
   {{#each texts}}
-    <span class="body-text">{{text}}~</span>
+    <span id="body-text">{{text}}~</span>
   {{/each}}
 
   <input type="text" id="user-text" />
-  <div class="bottom-finder"></div>
 
 </template>
 

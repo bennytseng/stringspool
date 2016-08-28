@@ -1,5 +1,27 @@
 import { Meteor } from 'meteor/meteor';
 
+
+
 Meteor.startup(() => {
-  // code to run on server at startup
+
+var removeAllPosts = (function() {
+    if (Meteor.isServer) {
+
+    Meteor.startup(function() {
+
+      return Meteor.methods({
+
+        removeAllPosts: function() {
+
+          return Posts.remove({});
+
+        }
+
+      });
+
+    });
+
+    }
+  });
+
 });
