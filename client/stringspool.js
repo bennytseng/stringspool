@@ -4,13 +4,23 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './stringspool.html';
 
 Template.stringspool.onCreated(function() {
+
+  var firstSize = 0
+
+  Meteor.setTimeout(function() {
+    firstSize = $('.js-spool-container').children().length;
+  }, 1000);
+
   Meteor.setInterval(function() {
-    $('#user-text').focus()
-    // var spool = document.getElementsByClassName('spool-container')
-    // var isScrolledToBottom = spool.scrollHeight - spool.clientHeight <= spool.scrollTop + 1;
-    // if(isScrolledToBottom)
-    // spool.scrollTop = spool.scrollHeight - spool.clientHeight;
-  }, 500);
+    var checkLen = $('.js-spool-container').children().length
+
+    if (firstSize != 0 && firstSize < checkLen) {
+      if (($(window).scrollTop() + $(window).height()) > ($(document).height() - 300)) {
+      $('html, body').animate({ scrollTop: $('.js-spool-container').height() }, 2000);
+      };
+      firstSize = checkLen
+    }
+  }, 300)
 });
 
 Template.stringspool.helpers({
@@ -19,22 +29,36 @@ Template.stringspool.helpers({
   },
 });
 
+Template.stringspool.rendered = function() {
+        $('body').on('keypress',function(e) {
+          if (e.which === 13) {
+            $('html, body').animate({ scrollTop: $(document).height() }, 100);
+            $('#user-text').focus();
+          }
+        });
+}
+
 Template.stringspool.events({
 
   'keyup #user-text'(e) {
     $('#user-show').html($(e.target).val());
     $('#user-text').attr('size', $('#user-text').val().length + 1);
-  },
+    },
+
   'keypress #user-text'(e, i) {
     if (e.which === 13) {
-      e.preventDefault();
       var $user_input = $('#user-text').val();
       var created_at = new Date();
       Strings.insert({text:$user_input,created_at: created_at ,color:'black'});
-      $('#user-text').val('')
-      
+      $('#user-text').val('');
+      $('html, body').animate({ scrollTop: $(document).height() }, 1000);
     }
-  }
-
+  },
+  'click #scroll'(){
+    $('html, body').on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+       $(this).stop();
+   });
+    $('html, body').animate({ scrollTop: $(document).height() }, 20000);
+  },
 
 });

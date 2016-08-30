@@ -3,24 +3,15 @@
 </head>
 
 <body>
-  <div class="spool-container">
     {{> stringspool}}
-  </div>
-
-    <div class="glitch-picture"></div>
-
 </body>
 
 <template name='stringspool'>
+  <button id="scroll">spool</button>
+  <div class="js-spool-container">
   {{#each texts}}
-    <span id="body-text">{{text}}~</span>
+    <div id="body-text">{{text}}~</div>
   {{/each}}
-
-  <input type="text" id="user-text" />
-
+  </div>
+  <textarea id="user-text"></textarea>
 </template>
-
-<!-- <template name='newtext'>
-  <h1 id="user-show"></h1>
-  <input type="text" id="user-text" />
-</template> -->
