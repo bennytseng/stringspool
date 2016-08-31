@@ -2,29 +2,38 @@
 
 body {
   padding-bottom: 10px;
-  background-color: black;
+  background-color: white;
 }
 
 #user-text:focus {
   outline: none;
   border: none;
   border-color: transparent;
-  font-size: 2.5em;
+  font-size: 1.5em;
   border-width: 0px;
 }
 
 #user-text {
   border: none;
-  background: black;
-  color: blue;
+  background-color: transparent;
+  color: black;
   width: 100%;
   padding-left: 10%;
   padding-right: 10%;
   padding-bottom: 10%;
 }
 
+#stringname {
+  border: none;
+  background-color: transparent;
+  color: black;
+  width: 150px;
+  outline: none;
+  font-size: 1.5em;
+}
+
 .js-spool-container {
-  background: black;
+  background-color: transparent;
   padding-top: 10%;
   padding-left: 10%;
   padding-right: 10%;
@@ -34,18 +43,18 @@ body {
 }
 
 .body-text {
-  color: green;
-  display: inline;
+  color: black;
+  display: block;
 }
 
 #scroll {
   position: fixed;
-  background-color: black;
+  background-color: white;
   border: none;
   width: 100%;
   height: 70px;
-  color: green;
-  border-bottom: 2px solid green;
+  color: black;
+  border-bottom: 2px solid black;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -53,12 +62,50 @@ body {
   outline: none;
 }
 
-#user-text-colour {
+/*#user-text-colour {
   width: 100px;
+}*/
+
+.string-sets {
+  text-align: center;
 }
 
-.text-container {
-  text-align: center;
+#red-label {
+  color: red;
+}
+
+#blue-label {
+  color: lightblue;
+}
+
+#green-label {
+  color: green;
+}
+
+#opacity-label {
+  color: black;
+}
+
+#red, #blue, #green, #opacity {
+  width: 100px;
+  display: inline;
+}
+
+/* do not group these rules */
+*::-webkit-input-placeholder {
+    color: #000;
+}
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: #000;
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: #000;
+}
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #000;
 }
 
 @media only screen and (max-width: 830px) {
@@ -66,5 +113,5 @@ body {
 }
 
 @media only screen and (max-width: 2000px) {
-  .body-text { font-size: 2.5em; }
+  .body-text { font-size: 1.5em; }
 }
