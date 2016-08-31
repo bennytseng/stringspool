@@ -7,11 +7,16 @@
 </body>
 
 <template name='stringspool'>
-  <button id="scroll">spool</button>
+<nav id="scroll">
+  <span>spool</span>
+</nav>
   <div class="js-spool-container">
   {{#each texts}}
-    <div id="body-text">{{text}}~</div>
+    <div class="body-text" style="color: {{colour}}">{{text}}~</div>
   {{/each}}
   </div>
-  <textarea id="user-text"></textarea>
+  <div class="text-container">
+    <textarea id="user-text"></textarea>
+    <select id="user-text-colour"></select>
+  </div>
 </template>
